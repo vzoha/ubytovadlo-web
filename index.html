@@ -300,12 +300,12 @@
     <h2>Pořadník na&nbsp;verzi bez instalace</h2>
     <p class="waitlist-lead">Nechte mi e‑mail a&nbsp;dám vědět, jakmile bude verze, kterou si jen zapnete a&nbsp;používáte, připravená k&nbsp;vyzkoušení. Žádný spam, jen jedno oznámení.</p>
 
-    <!--
-      WAITLIST: nahraďte action svým Formspree endpointem (https://formspree.io/f/XXXX)
-      nebo nahraďte celý <form> embedem z Tally (https://tally.so).
-      Bez doplnění endpointu formulář jen přesměruje na e-mail (fallback níže).
-    -->
-    <form class="waitlist-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+    <!-- WAITLIST: napojeno na Formspree (formspree.io/f/mbdepvko). Submize chodí na účet vzoha. -->
+    <!-- POZOR: Formspree free tier vyžaduje u prvního odeslání potvrzení e-mailu vlastníka. -->
+    <!-- Volitelně lze přidat ochranu proti spamu (honeypot _gotcha) — viz docs Formspree. -->
+    <form class="waitlist-form" action="https://formspree.io/f/mbdepvko" method="POST">
+      <input type="hidden" name="_subject" value="Ubytovadlo — nový zájemce v pořadníku">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
       <label class="sr-only" for="email">Váš e‑mail</label>
       <input id="email" type="email" name="email" required placeholder="vas@email.cz" autocomplete="email">
       <button class="btn btn-primary" type="submit">Chci vědět první</button>
