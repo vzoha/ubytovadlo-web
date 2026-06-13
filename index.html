@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ubytovadlo — chytrá automatizace rezervací pro malé ubytovatele</title>
+<meta name="description" content="Ubytovadlo sleduje rezervace z webu, Bookingu i Airbnb a samo z nich vystaví fakturu, založí evidenci a pohlídá hlášení i lhůty. Open source, běží na běžném hostingu, bez drahých předplatných.">
+<meta property="og:title" content="Ubytovadlo — automatizace rezervací pro malé ubytovatele">
+<meta property="og:description" content="Rezervaci zadáte jednou, o fakturu, evidenci, DPH i hlášení se postará samo. Open source, pro české provozovatele.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://ubytovadlo.cz/assets/screenshot-dashboard.png">
+<meta name="theme-color" content="#3d4a2f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="canonical" href="https://ubytovadlo.cz/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://ubytovadlo.cz/#website",
+      "url": "https://ubytovadlo.cz/",
+      "name": "Ubytovadlo",
+      "description": "Open source automatizace rezervací, fakturace a evidence pro malé ubytovatele.",
+      "inLanguage": "cs-CZ",
+      "publisher": { "@id": "https://ubytovadlo.cz/#author" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ubytovadlo.cz/#author",
+      "name": "Vojtěch Žoha",
+      "url": "https://www.linkedin.com/in/vojtech-zoha/",
+      "sameAs": [
+        "https://www.linkedin.com/in/vojtech-zoha/",
+        "https://github.com/vzoha"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://ubytovadlo.cz/#app",
+      "name": "Ubytovadlo",
+      "url": "https://ubytovadlo.cz/",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Property management / channel manager",
+      "operatingSystem": "PHP 8, MySQL (self-hosted, sdílený hosting)",
+      "inLanguage": "cs-CZ",
+      "description": "Ubytovadlo sleduje rezervace z vlastního webu, Bookingu i Airbnb a samo z nich vystaví fakturu, založí řádek v evidenci a pohlídá hlášení i lhůty. Řeší české potřeby: Ubyport, identifikovanou osobu, DPH z provizí Bookingu a Airbnb, QR Platbu i kurzy ČNB.",
+      "author": { "@id": "https://ubytovadlo.cz/#author" },
+      "license": "https://github.com/vzoha/ubytovadlo/blob/main/LICENSE.md",
+      "isAccessibleForFree": true,
+      "codeRepository": "https://github.com/vzoha/ubytovadlo",
+      "featureList": [
+        "Sběr rezervací z vlastního webu, Bookingu a Airbnb na jedno místo",
+        "Automatické vystavení faktur v PDF s QR Platbou a navazující číselnou řadou",
+        "Přepočet z eur na koruny kurzem ČNB",
+        "DPH z provizí Bookingu a Airbnb pro identifikované osoby (§6h ZDPH)",
+        "Online check‑in se sběrem dokladů cizinců pro Ubyport",
+        "Přehled příjmů, výdajů a zisku na každou rezervaci"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CZK"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ubytovadlo.cz/#faq",
+      "inLanguage": "cs-CZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kolik Ubytovadlo stojí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nic. Je to open source pod licencí FSL — kód si zdarma stáhnete a provozujete na vlastním hostingu. Žádné měsíční předplatné. Připravuji i verzi, kterou si jen zapnete a používáte (poběží za vás) — základ zdarma, za pokročilé funkce se připlatí."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pro koho se Ubytovadlo hodí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pro malé ubytovatele — apartmán nebo chalupu — kteří prodávají přes více kanálů (vlastní web, Booking, Airbnb) a nechtějí platit drahé zahraniční systémy ani trávit večery přepisováním dat. Cílí hlavně na české provozovatele."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Na čem Ubytovadlo běží a co potřebuju k provozu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stačí běžný webhosting s PHP a MySQL — ten typ, na kterém běží i většina českých webů. Nepotřebujete vlastní server ani nic složitě instalovat, využijí se běžné funkce hostingu (e‑mailová schránka a naplánované úlohy)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Čím se Ubytovadlo liší od zahraničních rezervačních systémů?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Řeší specificky české potřeby, které zahraniční nástroje neumí: hlášení cizinců na Ubyport, fakturaci pro identifikovanou osobu (§6h ZDPH), DPH z provizí Bookingu a Airbnb, QR Platbu i přepočet kurzem ČNB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jsou má data v bezpečí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ano — Ubytovadlo běží na vašem vlastním hostingu. Data o rezervacích i hostech zůstávají u vás, neputují do žádného cloudu třetí strany."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kdy bude verze, kterou nemusím instalovat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chystá se. Zatím sbírám zájem — zapište se do pořadníku a ozvu se, jakmile bude připravená k vyzkoušení."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">🏡</span> Ubytovadlo
+    </a>
+    <nav class="nav-links">
+      <a href="#co-umi">Co umí</a>
+      <a href="#pro-koho">Pro koho</a>
+      <a href="#pouzivat">Chci to používat</a>
+      <a class="nav-cta" href="https://github.com/vzoha/ubytovadlo">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Od ubytovatele pro ubytovatele · open source</p>
+      <h1>Rezervaci zadáte jednou.<br><em>O zbytek se postará samo.</em></h1>
+      <p class="lead">Ubytovadlo sleduje rezervace z vlastního webu, Bookingu i Airbnb a samo z nich vystaví fakturu, založí řádek v evidenci a pohlídá hlášení i lhůty. Bez drahých zahraničních předplatných — běží na běžném webhostingu.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#pouzivat">Chci to používat</a>
+        <a class="btn btn-ghost" href="https://github.com/vzoha/ubytovadlo">Zdrojový kód na GitHubu</a>
+      </div>
+      <p class="hero-note">Běží na&nbsp;běžném webhostingu · bez měsíčního předplatného · otevřený kód</p>
+    </div>
+    <div class="hero-shot">
+      <img src="assets/screenshot-dashboard.png" alt="Přehledový dashboard Ubytovadla — nadcházející pobyty, úklid, faktury k vystavení, DPH a ekonomika na jednom místě" loading="eager" width="1280" height="1062">
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap story-inner">
+    <h2>Proč vzniklo</h2>
+    <p>S manželkou máme na statku ve&nbsp;Lništi u&nbsp;Trhových Svinů <strong><a href="https://www.malystatek.cz/">Vejminek Malý Statek</a></strong> — starou kamennou chalupu, kterou jsme zrekonstruovali a dnes ji pronajímáme. Hosté si u&nbsp;nás rezervují pobyt přes vlastní web, Booking, Airbnb i&nbsp;české eChalupy, někdo platí hotově, jiný převodem nebo FKSP poukazem.</p>
+    <p>A v&nbsp;tom je ten háček: každý kanál si žije po&nbsp;svém. Přišla rezervace — a&nbsp;začal kolotoč. Opsat hosta z&nbsp;Bookingu do&nbsp;evidence, tytéž údaje pak ještě jednou do&nbsp;faktury, dopočítat kurz, nezapomenout na&nbsp;zálohu, na&nbsp;DPH z&nbsp;provize, na&nbsp;hlášení cizinců. Pak totéž z&nbsp;Airbnb, z&nbsp;webu. Pořád dokola — a&nbsp;s&nbsp;nepříjemným pocitem, že se na&nbsp;něco zase zapomnělo.</p>
+    <p>Tak jsem si řekl, že to musí jít líp, a&nbsp;o&nbsp;víkendech se do&nbsp;toho pustil. Dneska rezervaci zadáme jednou a&nbsp;o&nbsp;zbytek — fakturu, evidenci, hlášení i&nbsp;připomínky — se postará Ubytovadlo samo. <strong>Není to demo, běží nám to naostro.</strong> A&nbsp;protože je psané obecně, může posloužit i&nbsp;vám.</p>
+    <p class="story-sign">— Vojtěch Žoha, <a href="https://www.linkedin.com/in/vojtech-zoha/">autor projektu</a></p>
+  </div>
+</section>
+
+<section id="co-umi" class="features">
+  <div class="wrap">
+    <h2 class="section-title">Co umí</h2>
+    <div class="feature-grid">
+      <article class="card">
+        <h3>Přehled, který myslí za&nbsp;vás</h3>
+        <p>Dashboard řekne, co opravdu řešit: kdo přijíždí, kde uklidit, komu vystavit fakturu, na&nbsp;jakou lhůtu nezapomenout. Barvy samy upozorní na&nbsp;to, co hoří.</p>
+      </article>
+      <article class="card">
+        <h3>Pracuje, i&nbsp;když vy ne</h3>
+        <p>Nová rezervace z&nbsp;webu, e‑mail od&nbsp;Bookingu, blok v&nbsp;Airbnb kalendáři — systém je zachytí sám a&nbsp;založí, co má. Ráno se jen podíváte, co přibylo.</p>
+      </article>
+      <article class="card">
+        <h3>Všechny kanály na&nbsp;jednom místě</h3>
+        <p>Vlastní web, Booking i&nbsp;Airbnb se slévají do&nbsp;jednoho přehledu. U&nbsp;rezervací z&nbsp;webu nezadáváte nic, u&nbsp;Bookingu a&nbsp;Airbnb doplníte jen to, co chybí.</p>
+      </article>
+      <article class="card">
+        <h3>Faktury na&nbsp;několik kliknutí</h3>
+        <p>Úhledné PDF s&nbsp;QR platbou, navazující číselnou řadou a&nbsp;přepočtem z&nbsp;eur kurzem ČNB. Systém sám pozná typ faktury — záloha, FKSP, Airbnb, Booking.</p>
+      </article>
+      <article class="card">
+        <h3>DPH z&nbsp;provizí pod kontrolou</h3>
+        <p>Pro identifikované osoby (§6h ZDPH): daň z&nbsp;provizí Booking/Airbnb se spočítá sama a&nbsp;měsíčně připraví podklad pro&nbsp;účetní. Žádné opomenutí.</p>
+      </article>
+      <article class="card">
+        <h3>Online check‑in i&nbsp;pro cizince</h3>
+        <p>Čeští hosté projdou bez vyplňování, u&nbsp;cizinců systém sebere doklady pro&nbsp;Ubyport včetně naskenování pasu kamerou. Firemní údaje načte z&nbsp;IČO.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <h2 class="section-title">Jak to vypadá</h2>
+    <div class="shot-grid">
+      <figure class="shot">
+        <img src="assets/screenshot-dph.png" alt="Měsíční přehled DPH reverse charge z provizí Booking/Airbnb — základ, daň a stav podání" loading="lazy">
+        <figcaption>DPH z&nbsp;provizí Bookingu a&nbsp;Airbnb — měsíční podklad pro&nbsp;účetní</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/screenshot-checkin.png" alt="Online check-in — fakturační údaje a sběr dokladů jen u ubytovaných cizinců pro Ubyport" loading="lazy">
+        <figcaption>Online check‑in pro&nbsp;cizince (Ubyport)</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/screenshot-ekonomika.png" alt="Ekonomika roku — zisk na každou rezervaci po odečtu nákladů a souhrn podle kanálu" loading="lazy">
+        <figcaption>Ekonomika — zisk na&nbsp;každou rezervaci</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/screenshot-faktura.png" alt="Faktura v PDF s QR platbou, variabilním symbolem a odpočtem zálohy" loading="lazy">
+        <figcaption>Faktura v&nbsp;PDF s&nbsp;QR Platbou</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="pro-koho" class="audience">
+  <div class="wrap audience-inner">
+    <h2 class="section-title">Pro koho je</h2>
+    <p>Pro malé ubytovatele — apartmán nebo chalupu — kteří prodávají přes více kanálů a&nbsp;nechtějí platit drahé zahraniční systémy ani trávit večery přepisováním dat. Sedí hlavně českým provozovatelům: řeší <strong>Ubyport, identifikovanou osobu, DPH z&nbsp;provizí Bookingu a&nbsp;Airbnb, QR Platbu i&nbsp;kurzy ČNB</strong> — věci, které zahraniční systémy neumí.</p>
+    <ul class="check-list">
+      <li>Běží na&nbsp;vašem hostingu — vaše data zůstávají u&nbsp;vás, žádný cloud třetí strany.</li>
+      <li>Běží na&nbsp;běžném webhostingu — žádný drahý speciální server.</li>
+      <li>Žádné měsíční předplatné — open source pod licencí FSL.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <h2 class="section-title">Časté otázky</h2>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Kolik Ubytovadlo stojí?</summary>
+        <p>Nic. Je to open source pod licencí FSL — kód si zdarma stáhnete a&nbsp;provozujete na&nbsp;vlastním hostingu. Žádné měsíční předplatné. Připravuji i&nbsp;verzi, kterou si jen zapnete a&nbsp;používáte (poběží za&nbsp;vás) — základ zdarma, za&nbsp;pokročilé funkce se připlatí.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Pro koho se hodí?</summary>
+        <p>Pro malé ubytovatele — apartmán nebo chalupu — kteří prodávají přes více kanálů (vlastní web, Booking, Airbnb) a&nbsp;nechtějí platit drahé zahraniční systémy ani trávit večery přepisováním dat. Cílí hlavně na&nbsp;české provozovatele.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Na&nbsp;čem to běží a&nbsp;co potřebuju k&nbsp;provozu?</summary>
+        <p>Stačí běžný webhosting s&nbsp;PHP a&nbsp;MySQL — ten typ, na&nbsp;kterém běží i&nbsp;většina českých webů. Nepotřebujete vlastní server ani nic složitě instalovat, využijí se běžné funkce hostingu (e‑mailová schránka a&nbsp;naplánované úlohy).</p>
+      </details>
+      <details class="faq-item">
+        <summary>Čím se liší od&nbsp;zahraničních rezervačních systémů?</summary>
+        <p>Řeší specificky české potřeby, které zahraniční nástroje neumí: hlášení cizinců na&nbsp;Ubyport, fakturaci pro identifikovanou osobu (§6h ZDPH), DPH z&nbsp;provizí Bookingu a&nbsp;Airbnb, QR&nbsp;Platbu i&nbsp;přepočet kurzem ČNB.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Jsou má data v&nbsp;bezpečí?</summary>
+        <p>Ano — Ubytovadlo běží na&nbsp;vašem vlastním hostingu. Data o&nbsp;rezervacích i&nbsp;hostech zůstávají u&nbsp;vás, neputují do&nbsp;žádného cloudu třetí strany.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Kdy bude verze, kterou nemusím instalovat?</summary>
+        <p>Chystá se. Zatím sbírám zájem — zapište se do&nbsp;<a href="#waitlist">pořadníku</a> a&nbsp;ozvu se, jakmile bude připravená k&nbsp;vyzkoušení.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="pouzivat" class="cta-section">
+  <div class="wrap">
+    <h2 class="section-title">Chci to používat</h2>
+    <div class="cta-grid">
+      <article class="cta-card">
+        <h3>Nasadím si sám</h3>
+        <p>Kód je open source — naklonujte repozitář a&nbsp;nasaďte na&nbsp;svůj hosting podle návodu.</p>
+        <a class="btn btn-primary" href="https://github.com/vzoha/ubytovadlo">Na&nbsp;GitHub ↗</a>
+      </article>
+      <article class="cta-card">
+        <h3>Nasazení na&nbsp;klíč</h3>
+        <p>Nechcete se tím zabývat? Nabízím nasazení a&nbsp;úpravy na&nbsp;míru — další kanály, vlastní fakturační toky, napojení na&nbsp;účetnictví.</p>
+        <a class="btn btn-ghost" href="mailto:vzoha@volny.cz?subject=Ubytovadlo%20%E2%80%94%20nasazen%C3%AD%20na%20kl%C3%AD%C4%8D">Napsat e‑mail</a>
+      </article>
+      <article class="cta-card cta-card--accent">
+        <h3>Chci to bez starostí</h3>
+        <p>Připravuji verzi, kde Ubytovadlo poběží za&nbsp;vás — <strong>nic neinstalujete ani nespravujete</strong>, jen se přihlásíte a&nbsp;používáte. Zapište se do&nbsp;pořadníku a&nbsp;ozvu se, až bude hotová.</p>
+        <a class="btn btn-primary" href="#waitlist">Do&nbsp;pořadníku</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist" class="waitlist">
+  <div class="wrap waitlist-inner">
+    <h2>Pořadník na&nbsp;verzi bez instalace</h2>
+    <p class="waitlist-lead">Nechte mi e‑mail a&nbsp;dám vědět, jakmile bude verze, kterou si jen zapnete a&nbsp;používáte, připravená k&nbsp;vyzkoušení. Žádný spam, jen jedno oznámení.</p>
+
+    <!--
+      WAITLIST: nahraďte action svým Formspree endpointem (https://formspree.io/f/XXXX)
+      nebo nahraďte celý <form> embedem z Tally (https://tally.so).
+      Bez doplnění endpointu formulář jen přesměruje na e-mail (fallback níže).
+    -->
+    <form class="waitlist-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+      <label class="sr-only" for="email">Váš e‑mail</label>
+      <input id="email" type="email" name="email" required placeholder="vas@email.cz" autocomplete="email">
+      <button class="btn btn-primary" type="submit">Chci vědět první</button>
+      <label class="consent">
+        <input type="checkbox" name="souhlas" required>
+        <span>Souhlasím, aby si Ubytovadlo uložilo můj e‑mail za&nbsp;účelem oznámení o&nbsp;spuštění služby. Kdykoli mě můžete odhlásit.</span>
+      </label>
+    </form>
+    <p class="waitlist-fallback">Nebo prostě napište na <a href="mailto:vzoha@volny.cz?subject=Ubytovadlo%20%E2%80%94%20po%C5%99adn%C3%ADk">vzoha@volny.cz</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark">🏡</span> <strong>Ubytovadlo</strong>
+      <p>Chytrá automatizace rezervací pro&nbsp;malé ubytovatele.</p>
+    </div>
+    <nav class="footer-links">
+      <a href="https://github.com/vzoha/ubytovadlo">Zdrojový kód</a>
+      <a href="https://github.com/vzoha/ubytovadlo/blob/main/LICENSE.md">Licence FSL</a>
+      <a href="mailto:vzoha@volny.cz">Kontakt</a>
+    </nav>
+  </div>
+  <div class="wrap footer-legal">
+    <p>© 2026 Vojtěch Žoha · Open source pod <a href="https://github.com/vzoha/ubytovadlo/blob/main/LICENSE.md">Functional Source License 1.1</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
