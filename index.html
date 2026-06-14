@@ -352,6 +352,14 @@
       gtag('event', 'generate_lead', { method: 'waitlist' });
     }
   });
+
+  // GA4: prokliky na GitHub
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href*="github.com"]');
+    if (a && typeof gtag === 'function') {
+      gtag('event', 'github_click', { link_url: a.href });
+    }
+  });
 </script>
 </body>
 </html>
