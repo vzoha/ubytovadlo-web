@@ -311,7 +311,7 @@
     <!-- WAITLIST: napojeno na Formspree (formspree.io/f/mbdepvko). Submize chodí na účet vzoha. -->
     <!-- POZOR: Formspree free tier vyžaduje u prvního odeslání potvrzení e-mailu vlastníka. -->
     <!-- Volitelně lze přidat ochranu proti spamu (honeypot _gotcha) — viz docs Formspree. -->
-    <form class="waitlist-form" action="https://formspree.io/f/mbdepvko" method="POST">
+    <form id="waitlist-form" class="waitlist-form" action="https://formspree.io/f/mbdepvko" method="POST">
       <input type="hidden" name="_subject" value="Ubytovadlo — nový zájemce v pořadníku">
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
       <label class="sr-only" for="email">Váš e‑mail</label>
@@ -345,5 +345,13 @@
   </div>
 </footer>
 
+<script>
+  // GA4: odeslání pořadníku = lead
+  document.getElementById('waitlist-form')?.addEventListener('submit', function () {
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', { method: 'waitlist' });
+    }
+  });
+</script>
 </body>
 </html>
