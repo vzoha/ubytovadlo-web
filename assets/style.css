@@ -275,7 +275,7 @@ img.zoomable { cursor: zoom-in; }
 
 /* ---------- article ---------- */
 .article-head { padding: 56px 0 8px; }
-.article-head-inner { max-width: 760px; margin-inline: auto; }
+.article-head-inner { max-width: 880px; margin-inline: auto; }
 .crumbs { font-size: .84rem; color: var(--muted); margin: 0 0 22px; }
 .crumbs a { color: var(--muted); }
 .crumbs a:hover { color: var(--terra-deep); }
@@ -288,7 +288,7 @@ img.zoomable { cursor: zoom-in; }
 
 /* signature: quick-answer card (also the AI-citable summary) */
 .answer {
-  max-width: 760px; margin: 36px auto 8px; background: var(--olive-deep); color: #ece7d8;
+  max-width: 880px; margin: 36px auto 8px; background: var(--olive-deep); color: #ece7d8;
   border-radius: var(--radius); padding: 30px 32px; box-shadow: var(--shadow);
   position: relative; overflow: hidden;
 }
@@ -303,7 +303,7 @@ img.zoomable { cursor: zoom-in; }
 .answer strong { color: #fff; }
 
 /* article body prose */
-.prose { max-width: 760px; margin: 0 auto; padding: 40px 0 24px; }
+.prose { max-width: 880px; margin: 0 auto; padding: 40px 0 24px; }
 .prose h2 {
   font-size: clamp(1.5rem, 2.6vw, 1.9rem); color: var(--olive-deep);
   margin: 48px 0 16px; line-height: 1.15;
@@ -336,7 +336,7 @@ img.zoomable { cursor: zoom-in; }
 
 /* end-of-article CTA — "jak to řeší Ubytovadlo" */
 .solves {
-  max-width: 760px; margin: 56px auto 0; background: var(--cream-card);
+  max-width: 880px; margin: 56px auto 0; background: var(--cream-card);
   border: 1px solid var(--line); border-radius: var(--radius); padding: 36px 34px;
   box-shadow: var(--shadow);
 }
@@ -356,7 +356,7 @@ img.zoomable { cursor: zoom-in; }
 .related { padding: 64px 0 24px; }
 .related > .wrap > h2 { font-size: 1.5rem; color: var(--olive-deep); text-align: center; margin: 0 0 28px; }
 .related-grid { max-width: 900px; margin-inline: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.article-back { max-width: 760px; margin: 40px auto 0; }
+.article-back { max-width: 880px; margin: 40px auto 0; }
 .article-back a { font-weight: 600; }
 
 @media (max-width: 760px) {
