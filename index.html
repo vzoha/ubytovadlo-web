@@ -384,6 +384,8 @@
     var box = document.getElementById('lightbox');
     if (!box) return;
     var img = box.querySelector('.lightbox-img');
+    var caption = box.querySelector('.lightbox-caption');
+    var stage = box.querySelector('.lightbox-stage');
     var thumbs = Array.prototype.slice.call(document.querySelectorAll('img.zoomable'));
     var index = 0;
 
@@ -392,6 +394,9 @@
       var el = thumbs[index];
       img.src = el.currentSrc || el.src;
       img.alt = el.alt;
+      var fig = el.closest('figure');
+      var cap = fig && fig.querySelector('figcaption');
+      caption.textContent = cap ? cap.textContent : el.alt;
     }
     function open(i) {
       show(i);
@@ -414,7 +419,7 @@
         show(index + (btn.dataset.nav === 'next' ? 1 : -1));
       });
     });
-    img.addEventListener('click', function (e) { e.stopPropagation(); });
+    stage.addEventListener('click', function (e) { e.stopPropagation(); });
     document.addEventListener('keydown', function (e) {
       if (!box.classList.contains('is-open')) return;
       if (e.key === 'Escape') close();
@@ -427,7 +432,10 @@
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Zvětšený náhled">
   <button type="button" class="lightbox-close" aria-label="Zavřít">&times;</button>
   <button type="button" class="lightbox-nav lightbox-prev" data-nav="prev" aria-label="Předchozí">&#8249;</button>
-  <img class="lightbox-img" src="" alt="">
+  <figure class="lightbox-stage">
+    <img class="lightbox-img" src="" alt="">
+    <figcaption class="lightbox-caption"></figcaption>
+  </figure>
   <button type="button" class="lightbox-nav lightbox-next" data-nav="next" aria-label="Další">&#8250;</button>
 </div>
 <script src="/assets/nav.js" defer></script>
