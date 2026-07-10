@@ -73,6 +73,15 @@ img { max-width: 100%; height: auto; display: block; }
   border: 1.5px solid var(--olive); padding: 8px 16px; border-radius: 999px; color: var(--olive) !important;
 }
 .nav-cta:hover { background: var(--olive); color: var(--cream) !important; }
+.nav-toggle {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  width: 44px; height: 40px; padding: 0 9px;
+  background: transparent; border: 1.5px solid var(--olive); border-radius: 10px; cursor: pointer;
+}
+.nav-toggle span { display: block; height: 2px; background: var(--olive); border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ---------- hero ---------- */
 .hero { padding: 72px 0 64px; background:
@@ -356,9 +365,16 @@ img.zoomable { cursor: zoom-in; }
   .shot-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 620px) {
-  /* on mobile keep Návody + GitHub reachable, hide in-page anchors */
-  .nav-links a:not(.nav-cta):not([href="/navody/"]) { display: none; }
-  .nav-links { gap: 18px; }
+  .nav-toggle { display: inline-flex; }
+  .nav-links {
+    display: none; position: absolute; top: 66px; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--cream); border-bottom: 1px solid var(--line);
+    padding: 8px 0 14px; box-shadow: var(--shadow);
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-links a { padding: 13px 24px; font-size: 1.04rem; }
+  .nav-links .nav-cta { margin: 10px 24px 0; text-align: center; border-radius: 999px; }
   .feature-grid, .cta-grid { grid-template-columns: 1fr; }
   .hero { padding: 48px 0; }
   .story, .features, .gallery, .audience, .cta-section, .waitlist { padding: 56px 0; }

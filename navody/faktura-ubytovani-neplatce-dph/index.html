@@ -95,7 +95,8 @@
 <header class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="/"><span class="brand-mark">🏡</span> Ubytovadlo</a>
-    <nav class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Otevřít menu" aria-controls="nav-menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="nav-menu">
       <a href="/#co-umi">Co umí</a>
       <a href="/#pro-koho">Pro koho</a>
       <a href="/navody/">Návody</a>
@@ -252,5 +253,6 @@
     }
   });
 </script>
+<script src="/assets/nav.js" defer></script>
 </body>
 </html>
