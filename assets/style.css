@@ -142,6 +142,21 @@ img.zoomable { cursor: zoom-in; }
   cursor: pointer; transition: background .15s ease;
 }
 .lightbox-close:hover { background: rgba(255, 255, 255, .25); }
+.lightbox-nav {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 54px; height: 54px; padding: 0;
+  font-size: 2.4rem; line-height: 1; color: #fff;
+  background: rgba(255, 255, 255, .12); border: 0; border-radius: 50%;
+  cursor: pointer; transition: background .15s ease;
+}
+.lightbox-nav:hover { background: rgba(255, 255, 255, .25); }
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+@media (max-width: 560px) {
+  .lightbox-prev { left: 10px; }
+  .lightbox-next { right: 10px; }
+  .lightbox-nav { width: 46px; height: 46px; font-size: 2rem; }
+}
 
 /* ---------- audience ---------- */
 .audience { padding: 80px 0; }
