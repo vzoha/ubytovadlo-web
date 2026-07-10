@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQBZF70LQS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQBZF70LQS');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jak vystavit fakturu za ubytování jako neplátce DPH | Ubytovadlo</title>
+<meta name="description" content="Faktura neplátce DPH nemá DPH ani řádek daně. Jaké náležitosti musí obsahovat podle §435 občanského zákoníku, jak přidat QR Platbu a variabilní symbol, jak přepočítat eura kurzem ČNB a jak zálohu s doplatkem.">
+<meta property="og:title" content="Jak vystavit fakturu za ubytování jako neplátce DPH">
+<meta property="og:description" content="Náležitosti dokladu, QR Platba, variabilní symbol, přepočet eur kurzem ČNB a záloha s doplatkem.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://www.ubytovadlo.cz/assets/screenshot-faktura.png">
+<meta name="theme-color" content="#3d4a2f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="canonical" href="https://www.ubytovadlo.cz/blog/faktura-ubytovani-neplatce-dph/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.ubytovadlo.cz/blog/faktura-ubytovani-neplatce-dph/#article",
+      "headline": "Jak vystavit fakturu za ubytování jako neplátce DPH",
+      "description": "Faktura neplátce DPH nemá řádek daně. Náležitosti podle §435 občanského zákoníku, QR Platba, variabilní symbol, přepočet eur kurzem ČNB a záloha s doplatkem.",
+      "inLanguage": "cs-CZ",
+      "datePublished": "2026-07-11",
+      "dateModified": "2026-07-11",
+      "image": "https://www.ubytovadlo.cz/assets/screenshot-faktura.png",
+      "articleSection": "Fakturace",
+      "author": { "@id": "https://www.ubytovadlo.cz/#author" },
+      "publisher": { "@id": "https://www.ubytovadlo.cz/#author" },
+      "mainEntityOfPage": "https://www.ubytovadlo.cz/blog/faktura-ubytovani-neplatce-dph/",
+      "about": [
+        { "@type": "Thing", "name": "Faktura neplátce DPH" },
+        { "@type": "Thing", "name": "QR Platba SPAYD" },
+        { "@type": "Thing", "name": "Náležitosti faktury" }
+      ],
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".answer"] }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ubytovadlo", "item": "https://www.ubytovadlo.cz/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.ubytovadlo.cz/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Faktura neplátce DPH", "item": "https://www.ubytovadlo.cz/blog/faktura-ubytovani-neplatce-dph/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "cs-CZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Musí neplátce DPH na faktuře uvádět DPH?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ne. Neplátce ani identifikovaná osoba na faktuře pro tuzemského hosta DPH neúčtuje ani neuvádí. Doporučuje se uvést poznámku, že vystavitel není plátcem DPH."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaké údaje musí faktura neplátce obsahovat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Podle §435 občanského zákoníku jméno a sídlo podnikatele, IČO a údaj o zápisu v příslušném rejstříku (u OSVČ v živnostenském rejstříku). V praxi dále číslo dokladu, označení odběratele, popis plnění, datum vystavení, částku a platební údaje."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak přepočítat cenu z eur na koruny?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kurzem ČNB. U faktury hostovi se prakticky použije denní kurz ČNB ke dni vystavení dokladu. Na faktuře je vhodné uvést původní měnu, kurz i den kurzu."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/"><span class="brand-mark">🏡</span> Ubytovadlo</a>
+    <nav class="nav-links">
+      <a href="/#co-umi">Co umí</a>
+      <a href="/#pro-koho">Pro koho</a>
+      <a href="/blog/">Blog</a>
+      <a class="nav-cta" href="https://github.com/vzoha/ubytovadlo">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<article>
+  <header class="article-head">
+    <div class="wrap article-head-inner">
+      <p class="crumbs"><a href="/blog/">Blog</a> · Fakturace</p>
+      <h1>Jak vystavit fakturu za ubytování jako neplátce DPH</h1>
+      <div class="article-meta">
+        <span>11.&nbsp;7.&nbsp;2026</span><span class="dot"></span>
+        <span>7 min čtení</span><span class="dot"></span>
+        <span>Vojtěch Žoha</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <aside class="answer">
+      <p class="answer-label">Rychlá odpověď</p>
+      <p>Neplátce DPH vystavuje fakturu <strong>bez DPH a bez řádku daně</strong>. Musí obsahovat náležitosti podle <strong>§&nbsp;435 občanského zákoníku</strong> — jméno, sídlo, IČO a&nbsp;údaj o&nbsp;zápisu v&nbsp;rejstříku — plus číslo dokladu, popis plnění, datum, částku a&nbsp;platební údaje. Vhodná je <strong>QR Platba</strong> (standard SPAYD od&nbsp;ČBA) a&nbsp;<strong>variabilní symbol</strong>. Cenu v&nbsp;eurech přepočtete <strong>kurzem ČNB ke dni vystavení</strong>.</p>
+    </aside>
+  </div>
+
+  <div class="wrap">
+    <div class="prose">
+
+      <p>Faktura neplátce je vlastně jednodušší než faktura plátce — nemá žádnou daň. Zádrhel je v&nbsp;detailech: jaké údaje jsou povinné, co uvést místo DPH a&nbsp;jak správně přepočítat eura z&nbsp;Bookingu. Projdeme to.</p>
+
+      <h2>Faktura neplátce nemá DPH</h2>
+      <p>Jako neplátce (a&nbsp;stejně tak <a href="/blog/kdy-jsem-identifikovana-osoba/">identifikovaná osoba</a> u&nbsp;tuzemského plnění) na fakturu pro hosta <strong>DPH neúčtujete ani neuvádíte</strong>. Nevystavujete daňový doklad podle zákona o&nbsp;DPH, ale běžnou fakturu — obchodní listinu podle občanského zákoníku. Doporučuje se doplnit poznámku typu <em>„Nejsem plátce DPH"</em>, u&nbsp;identifikované osoby pak i&nbsp;vlastní <strong>DIČ</strong> a&nbsp;poznámku o&nbsp;statusu identifikované osoby.</p>
+
+      <h2>Povinné náležitosti (§ 435)</h2>
+      <p>Základ určuje <strong>§&nbsp;435 zákona č.&nbsp;89/2012&nbsp;Sb.</strong> (občanský zákoník) o&nbsp;údajích na&nbsp;obchodních listinách:</p>
+      <ul>
+        <li><strong>jméno a&nbsp;sídlo</strong> podnikatele,</li>
+        <li><strong>IČO</strong>,</li>
+        <li><strong>údaj o&nbsp;zápisu</strong> v&nbsp;příslušném rejstříku — u&nbsp;OSVČ věta typu „Fyzická osoba zapsaná v&nbsp;živnostenském rejstříku", u&nbsp;zápisu v&nbsp;obchodním rejstříku i&nbsp;oddíl a&nbsp;vložka.</li>
+      </ul>
+      <p>V&nbsp;praxi na fakturu dále patří: <strong>číslo dokladu</strong>, označení odběratele (host / firma u&nbsp;FKSP), <strong>popis plnění</strong> (ubytování, termín), <strong>datum vystavení</strong>, <strong>datum splatnosti</strong>, celková částka a&nbsp;platební údaje (číslo účtu, variabilní symbol).</p>
+
+      <h2>QR Platba a variabilní symbol</h2>
+      <p><strong>QR Platba</strong> (formát <strong>SPAYD</strong> — Short Payment Descriptor, standard České bankovní asociace) není povinná, ale hostovi výrazně usnadní platbu: naskenuje kód a&nbsp;má předvyplněnou částku, účet i&nbsp;variabilní symbol. <strong>Variabilní symbol</strong> — typicky číslo faktury nebo kód rezervace — vám zase umožní platbu spolehlivě spárovat s&nbsp;konkrétní rezervací.</p>
+
+      <h2>Přepočet z eur (Booking)</h2>
+      <p>U&nbsp;rezervací z&nbsp;Booking.com bývá cena v&nbsp;eurech, faktura ale míří českému hostovi v&nbsp;korunách. Přepočet provedete <strong>kurzem ČNB</strong>; u&nbsp;faktury hostovi se prakticky použije denní kurz ČNB <strong>ke dni vystavení</strong> dokladu. Na faktuře je vhodné uvést <strong>původní měnu, kurz a&nbsp;datum kurzu</strong>, aby byl přepočet dohledatelný.</p>
+
+      <div class="note">
+        <strong>Pozor na dva různé kurzy.</strong> Kurz pro fakturu hostovi (den vystavení) je něco jiného než kurz pro <a href="/blog/dph-z-provizi-booking-airbnb/">DPH z&nbsp;provize</a>, kde je rozhodný den přijetí služby. Nepleťte si je.
+      </div>
+
+      <h2>Záloha a doplatek</h2>
+      <p>U&nbsp;webových rezervací s&nbsp;bankovní platbou host obvykle skládá <strong>zálohu</strong> (např. 1&nbsp;000&nbsp;Kč) a&nbsp;zbytek doplácí při příjezdu. Postup:</p>
+      <ol>
+        <li>Na zálohu vystavíte <strong>zálohovou fakturu</strong>.</li>
+        <li>Po&nbsp;doplacení vystavíte <strong>konečnou fakturu</strong> na&nbsp;celou částku s&nbsp;<strong>odpočtem zálohy</strong> a&nbsp;odkazem na&nbsp;zálohový doklad.</li>
+      </ol>
+      <p>Číslování obou dokladů drží <strong>vlastní číselnou řadu</strong>, aby na&nbsp;sebe navazovala a&nbsp;nevznikaly díry.</p>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Musím na fakturu psát „Nejsem plátce DPH"?</summary>
+          <p>Zákon to výslovně nepřikazuje, ale je to zavedená a&nbsp;doporučená praxe — hostovi i&nbsp;jeho účetní je hned jasné, že na&nbsp;faktuře žádná DPH není a&nbsp;proč.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Je QR Platba povinná?</summary>
+          <p>Není. Je to dobrovolný standard ČBA, který jen usnadní platbu. Faktura je platná i&nbsp;bez ní.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Jaký kurz použít u&nbsp;faktury z&nbsp;Bookingu?</summary>
+          <p>Kurz ČNB. U&nbsp;faktury hostovi prakticky denní kurz ke dni vystavení dokladu; na&nbsp;faktuře uveďte měnu, kurz i&nbsp;den.</p>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="solves">
+      <p class="eyebrow">Jak to řeší Ubytovadlo</p>
+      <h2>Faktura na několik kliknutí</h2>
+      <p>Ubytovadlo vygeneruje fakturu z&nbsp;rezervace — se všemi náležitostmi, QR Platbou i&nbsp;správným kurzem.</p>
+      <ul>
+        <li><strong>PDF s&nbsp;QR Platbou</strong>, variabilním symbolem a&nbsp;poznámkou o&nbsp;neplátci / identifikované osobě včetně DIČ.</li>
+        <li><strong>Navazující číselná řada</strong> a&nbsp;server-side pojistka proti duplicitnímu vystavení.</li>
+        <li><strong>Přepočet eur kurzem ČNB</strong> ke dni vystavení, s&nbsp;uvedením měny, kurzu i&nbsp;data na&nbsp;faktuře.</li>
+        <li><strong>Zálohová i&nbsp;konečná faktura</strong> s&nbsp;automatickým odpočtem zálohy podle typu rezervace.</li>
+      </ul>
+      <div class="solves-actions">
+        <a class="btn btn-primary" href="/#pouzivat">Chci to používat</a>
+        <a class="btn btn-ghost" href="https://github.com/vzoha/ubytovadlo">Zdrojový kód na GitHubu</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <p class="article-back"><a href="/blog/">← Zpět na blog</a></p>
+  </div>
+</article>
+
+<section class="related">
+  <div class="wrap">
+    <h2>Mohlo by se hodit</h2>
+    <div class="related-grid">
+      <a class="post-card" href="/blog/dph-z-provizi-booking-airbnb/">
+        <div class="post-meta"><span class="tag">Daně</span></div>
+        <h2>DPH z provizí Bookingu a Airbnb: reverse charge krok za krokem</h2>
+        <p>Jak základ přepočítat kurzem ČNB, do kdy podat přiznání a proč bez odpočtu.</p>
+        <span class="post-more">Číst návod →</span>
+      </a>
+      <a class="post-card" href="/blog/kdy-jsem-identifikovana-osoba/">
+        <div class="post-meta"><span class="tag">Daně</span></div>
+        <h2>Kdy se ubytovatel stává identifikovanou osobou k DPH</h2>
+        <p>Do kdy se registrovat a proč to není plátcovství DPH.</p>
+        <span class="post-more">Číst návod →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark">🏡</span> <strong>Ubytovadlo</strong>
+      <p>Chytrá automatizace rezervací pro&nbsp;malé ubytovatele.</p>
+    </div>
+    <nav class="footer-links">
+      <a href="/">Úvod</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://github.com/vzoha/ubytovadlo">Zdrojový kód</a>
+      <a href="mailto:vzoha@volny.cz">Kontakt</a>
+    </nav>
+  </div>
+  <div class="wrap footer-legal">
+    <p>© 2026 Vojtěch Žoha · Open source pod <a href="https://github.com/vzoha/ubytovadlo/blob/main/LICENSE.md">Functional Source License 1.1</a></p>
+    <p style="margin-top:10px">Článek má informativní charakter, nenahrazuje právní ani daňové poradenství. Před rozhodnutím ověřte aktuální znění předpisů.</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href*="github.com"]');
+    if (a && typeof gtag === 'function') {
+      gtag('event', 'github_click', { link_url: a.href });
+    }
+  });
+</script>
+</body>
+</html>

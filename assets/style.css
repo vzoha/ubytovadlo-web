@@ -189,6 +189,128 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-legal { margin-top: 36px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.12); font-size: .85rem; }
 .footer-legal a { color: #e9b59c; }
 
+/* ========== BLOG ========== */
+
+/* ---------- blog index ---------- */
+.blog-hero { padding: 64px 0 40px; background:
+  radial-gradient(120% 90% at 85% -10%, rgba(192,98,58,.10), transparent 60%),
+  radial-gradient(90% 80% at 5% 0%, rgba(61,74,47,.08), transparent 55%); }
+.blog-hero-inner { max-width: 760px; }
+.blog-hero h1 { font-size: clamp(2.1rem, 4vw, 3rem); color: var(--olive-deep); margin: 8px 0 16px; }
+.blog-hero .lead { max-width: 54ch; }
+
+.post-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; padding-bottom: 88px; }
+.post-card {
+  background: var(--cream-card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 30px 28px; display: flex; flex-direction: column;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.post-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); text-decoration: none; }
+.post-card h2 { font-size: 1.42rem; color: var(--olive-deep); margin: 12px 0 10px; line-height: 1.15; }
+.post-card p { margin: 0 0 20px; color: var(--muted); font-size: 1rem; flex: 1; }
+.post-meta { display: flex; align-items: center; gap: 12px; font-size: .82rem; color: var(--muted); }
+.post-more { color: var(--terra-deep); font-weight: 600; font-size: .95rem; }
+
+.tag {
+  display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--terra-deep);
+  background: rgba(192,98,58,.09); border: 1px solid rgba(192,98,58,.22);
+  padding: 4px 11px; border-radius: 999px;
+}
+
+/* ---------- article ---------- */
+.article-head { padding: 56px 0 8px; }
+.article-head-inner { max-width: 720px; margin-inline: auto; }
+.crumbs { font-size: .84rem; color: var(--muted); margin: 0 0 22px; }
+.crumbs a { color: var(--muted); }
+.crumbs a:hover { color: var(--terra-deep); }
+.article-head h1 {
+  font-size: clamp(2rem, 4vw, 2.9rem); color: var(--olive-deep);
+  margin: 14px 0 18px; line-height: 1.08;
+}
+.article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-size: .88rem; color: var(--muted); }
+.article-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); opacity: .6; }
+
+/* signature: quick-answer card (also the AI-citable summary) */
+.answer {
+  max-width: 720px; margin: 36px auto 8px; background: var(--olive-deep); color: #ece7d8;
+  border-radius: var(--radius); padding: 30px 32px; box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.answer::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--terra);
+}
+.answer .answer-label {
+  text-transform: uppercase; letter-spacing: .12em; font-size: .74rem; font-weight: 600;
+  color: #e9b59c; margin: 0 0 10px;
+}
+.answer p { margin: 0; font-size: 1.14rem; line-height: 1.55; color: #f3efe2; }
+.answer strong { color: #fff; }
+
+/* article body prose */
+.prose { max-width: 720px; margin: 0 auto; padding: 40px 0 24px; }
+.prose > * { max-width: 66ch; }
+.prose h2 {
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem); color: var(--olive-deep);
+  margin: 48px 0 16px; line-height: 1.15;
+}
+.prose h3 { font-size: 1.24rem; color: var(--olive-deep); margin: 32px 0 12px; }
+.prose p { font-size: 1.08rem; color: var(--ink); margin: 0 0 18px; }
+.prose ul, .prose ol { font-size: 1.08rem; color: var(--ink); margin: 0 0 20px; padding-left: 26px; }
+.prose li { margin-bottom: 9px; }
+.prose li::marker { color: var(--terra); }
+.prose strong { color: var(--olive-deep); }
+.prose a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* small paragraph/reference callout */
+.note {
+  max-width: 66ch; background: var(--cream-card); border: 1px solid var(--line);
+  border-left: 4px solid var(--terra); border-radius: 10px;
+  padding: 16px 20px; margin: 24px 0; font-size: .98rem; color: var(--muted);
+}
+.note strong { color: var(--olive-deep); }
+
+/* fact table */
+.prose table { width: 100%; max-width: 100%; border-collapse: collapse; margin: 24px 0; font-size: .98rem; }
+.prose th, .prose td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+.prose thead th { color: var(--olive-deep); font-family: "Fraunces", serif; font-weight: 600; border-bottom: 2px solid var(--line); }
+.table-scroll { overflow-x: auto; margin: 24px 0; }
+.table-scroll table { margin: 0; }
+
+/* in-article FAQ reuses .faq-list/.faq-item spacing */
+.prose .faq-list { max-width: 66ch; margin: 24px 0; }
+
+/* end-of-article CTA — "jak to řeší Ubytovadlo" */
+.solves {
+  max-width: 720px; margin: 56px auto 0; background: var(--cream-card);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 36px 34px;
+  box-shadow: var(--shadow);
+}
+.solves .eyebrow { margin-bottom: 10px; }
+.solves h2 { font-size: 1.6rem; color: var(--olive-deep); margin: 0 0 14px; }
+.solves p { color: var(--ink); font-size: 1.06rem; margin: 0 0 16px; }
+.solves ul { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 10px; }
+.solves li { position: relative; padding-left: 30px; color: var(--ink); }
+.solves li::before {
+  content: "✓"; position: absolute; left: 0; top: 2px; color: #fff; background: var(--terra);
+  width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center;
+  font-size: .7rem; font-weight: 700;
+}
+.solves-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* related posts + article footer nav */
+.related { padding: 64px 0 24px; }
+.related h2 { font-size: 1.5rem; color: var(--olive-deep); text-align: center; margin: 0 0 28px; }
+.related-grid { max-width: 900px; margin-inline: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.article-back { max-width: 720px; margin: 40px auto 0; }
+.article-back a { font-weight: 600; }
+
+@media (max-width: 760px) {
+  .post-grid, .related-grid { grid-template-columns: 1fr; }
+  .answer, .solves { padding: 24px 22px; }
+  .prose p, .prose ul, .prose ol { font-size: 1.04rem; }
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 920px) {
   .hero-grid { grid-template-columns: 1fr; gap: 36px; }
