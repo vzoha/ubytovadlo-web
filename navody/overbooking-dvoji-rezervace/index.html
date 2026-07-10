@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQBZF70LQS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YQBZF70LQS');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overbooking: jak předejít dvojí rezervaci mezi Bookingem a Airbnb | Ubytovadlo</title>
+<meta name="description" content="Overbooking vzniká, když se stejný termín prodá na dvou kanálech současně. Proč k němu dochází, co stojí zrušení hosta na Bookingu a Airbnb a jak mu předejít obousměrnou synchronizací kalendářů (iCal).">
+<meta property="og:title" content="Overbooking: jak předejít dvojí rezervaci mezi kanály">
+<meta property="og:description" content="Proč vzniká dvojí obsazení, co stojí zrušení hosta a jak mu předejít synchronizací kalendářů.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://www.ubytovadlo.cz/assets/screenshot-dashboard.png">
+<meta name="theme-color" content="#3d4a2f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="canonical" href="https://www.ubytovadlo.cz/navody/overbooking-dvoji-rezervace/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://www.ubytovadlo.cz/navody/overbooking-dvoji-rezervace/#article",
+      "headline": "Overbooking: jak předejít dvojí rezervaci mezi Bookingem a Airbnb",
+      "description": "Overbooking vzniká, když se stejný termín prodá na dvou kanálech. Proč k němu dochází, co stojí zrušení hosta a jak mu předejít obousměrnou synchronizací kalendářů (iCal).",
+      "inLanguage": "cs-CZ",
+      "datePublished": "2026-07-11",
+      "dateModified": "2026-07-11",
+      "image": "https://www.ubytovadlo.cz/assets/screenshot-dashboard.png",
+      "articleSection": "Provoz",
+      "author": { "@id": "https://www.ubytovadlo.cz/#author" },
+      "publisher": { "@id": "https://www.ubytovadlo.cz/#author" },
+      "mainEntityOfPage": "https://www.ubytovadlo.cz/navody/overbooking-dvoji-rezervace/",
+      "about": [
+        { "@type": "Thing", "name": "Overbooking" },
+        { "@type": "Thing", "name": "Synchronizace kalendářů" },
+        { "@type": "Thing", "name": "iCal" }
+      ],
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".answer"] }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ubytovadlo", "item": "https://www.ubytovadlo.cz/" },
+        { "@type": "ListItem", "position": 2, "name": "Návody", "item": "https://www.ubytovadlo.cz/navody/" },
+        { "@type": "ListItem", "position": 3, "name": "Overbooking: dvojí rezervace", "item": "https://www.ubytovadlo.cz/navody/overbooking-dvoji-rezervace/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "cs-CZ",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Co je overbooking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Overbooking je dvojí obsazení — situace, kdy je stejný termín prodán dvěma hostům najednou, typicky proto, že se rezervace přijala na dvou různých kanálech (například na Bookingu i Airbnb), jejichž kalendáře nebyly propojené."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak se vyhnout dvojí rezervaci na Bookingu a Airbnb?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Propojením kalendářů. Obsazenost se drží na jednom místě a obousměrně se synchronizuje se všemi kanály přes iCal feed — jakmile se termín prodá kdekoli, ostatní kanály ho vidí jako obsazený a znovu ho neprodají."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Co dělat, když už k overbookingu došlo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Co nejdřív kontaktujte hosty, nabídněte náhradní termín nebo srovnatelné ubytování a řešte to přes podporu dané platformy. Zrušení ze strany hostitele může znamenat sankce a zhoršené hodnocení, proto je prevence synchronizací kalendářů zásadní."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/"><span class="brand-mark">🏡</span> Ubytovadlo</a>
+    <nav class="nav-links">
+      <a href="/#co-umi">Co umí</a>
+      <a href="/#pro-koho">Pro koho</a>
+      <a href="/navody/">Návody</a>
+      <a href="/#pouzivat">Chci to používat</a>
+      <a class="nav-cta" href="https://github.com/vzoha/ubytovadlo">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<article>
+  <header class="article-head">
+    <div class="wrap article-head-inner">
+      <p class="crumbs"><a href="/navody/">Návody</a> · Provoz</p>
+      <h1>Overbooking: jak předejít dvojí rezervaci mezi Bookingem a Airbnb</h1>
+      <div class="article-meta">
+        <span>11.&nbsp;7.&nbsp;2026</span><span class="dot"></span>
+        <span>6 min čtení</span><span class="dot"></span>
+        <span>Vojtěch Žoha</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <aside class="answer">
+      <p class="answer-label">Rychlá odpověď</p>
+      <p>Overbooking je <strong>dvojí obsazení</strong> — stejný termín prodaný dvěma hostům, protože rezervace přišly z&nbsp;různých kanálů (třeba Booking i&nbsp;Airbnb) s&nbsp;nepropojenými kalendáři. Předejdete mu jediným způsobem: <strong>držet obsazenost na jednom místě a&nbsp;obousměrně ji synchronizovat</strong> se všemi kanály přes <strong>iCal</strong>. Jakmile se termín kdekoli prodá, ostatní kanály ho uvidí jako obsazený a&nbsp;znovu ho neprodají.</p>
+    </aside>
+  </div>
+
+  <div class="wrap">
+    <div class="prose">
+
+      <p>Dvě rezervace na&nbsp;stejnou noc jsou noční můra každého ubytovatele. Jeden z&nbsp;hostů se bude muset zrušit — a&nbsp;to znamená omluvy, shánění náhrady, sankce od&nbsp;platformy a&nbsp;špatnou recenzi. Dobrá zpráva: overbookingu jde téměř úplně předejít.</p>
+
+      <h2>Proč overbooking vzniká</h2>
+      <p>Málokdo dnes prodává jen jedním kanálem. Běžně jede <strong>vlastní web, Booking.com, Airbnb</strong>, k&nbsp;tomu české portály jako <strong>eChalupy nebo Chalupy&nbsp;a&nbsp;chaty</strong> a&nbsp;přímé rezervace po&nbsp;telefonu. Každý kanál má <strong>vlastní kalendář</strong> a&nbsp;o&nbsp;ostatních sám od&nbsp;sebe neví.</p>
+      <p>Když prodej na&nbsp;jednom kanálu ručně nezablokujete na&nbsp;všech ostatních, vzniká okno, kdy je tentýž termín pořád volný jinde. Stačí, aby v&nbsp;tu chvíli někdo zarezervoval — a&nbsp;máte dvě rezervace na&nbsp;jednu noc. U&nbsp;jednoho objektu se to zdá zvládnutelné ručně, ale stačí jeden zapomenutý zápis nebo souběh dvou rezervací během pár minut.</p>
+
+      <h2>Co overbooking stojí</h2>
+      <ul>
+        <li><strong>Sankce od&nbsp;platformy.</strong> Zrušení ze strany hostitele je na&nbsp;Bookingu i&nbsp;Airbnb postihované — od&nbsp;pokut a&nbsp;nákladů na&nbsp;přemístění hosta až po&nbsp;dočasné znevýhodnění inzerátu.</li>
+        <li><strong>Horší pozice ve&nbsp;výsledcích.</strong> Časté rušení sráží hodnocení spolehlivosti a&nbsp;tím i&nbsp;viditelnost.</li>
+        <li><strong>Špatná recenze.</strong> Zrušenému hostovi zkazíte plány — a&nbsp;on to napíše.</li>
+        <li><strong>Váš čas a&nbsp;nervy.</strong> Řešení konfliktu na&nbsp;poslední chvíli je stres, který nepotřebujete.</li>
+      </ul>
+
+      <h2>Jak mu předejít</h2>
+      <p>Princip je jednoduchý: <strong>jeden zdroj pravdy o&nbsp;obsazenosti</strong> a&nbsp;jeho <strong>obousměrná synchronizace</strong> se všemi kanály. K&nbsp;tomu slouží <strong>iCal</strong> — standardní formát kalendáře, který umí sdílet Booking, Airbnb i&nbsp;většina českých portálů:</p>
+      <ul>
+        <li><strong>Export</strong> — jeden společný feed vaší obsazenosti (ze všech kanálů i&nbsp;přímých rezervací) vložíte do&nbsp;každé platformy. Ta pak zablokuje termíny obsazené jinde.</li>
+        <li><strong>Import</strong> — feedy jednotlivých platforem stahujete zpět, takže o&nbsp;každém novém prodeji víte a&nbsp;promítnete ho do&nbsp;společné obsazenosti.</li>
+      </ul>
+      <p>Pro <strong>jeden objekt je obousměrný iCal sync plně dostačující</strong> — placený channel manager (Smoobu, Beds24 a&nbsp;podobně) je pro jediný apartmán zbytečný luxus.</p>
+
+      <div class="note">
+        <strong>Zbytkové riziko: prodleva feedů.</strong> iCal se nesynchronizuje v&nbsp;reálném čase, ale v&nbsp;intervalech (podle platformy minuty až hodiny). Úzké okno pro souběh proto zůstává — čím <strong>častěji</strong> sync běží, tím menší je. Úplně na&nbsp;nulu se riziko dostane jen u&nbsp;přímého napojení přes API (channel manager), což je pro malý objekt většinou zbytečné.
+      </div>
+
+      <h2>Na co si dát pozor</h2>
+      <ul>
+        <li><strong>Propojte všechny kanály, ne jen dva.</strong> Zapomenutý portál je přesně ta díra, kudy overbooking proteče.</li>
+        <li><strong>Blokujte i&nbsp;přímé rezervace.</strong> Pobyt domluvený po&nbsp;telefonu musí být v&nbsp;obsazenosti stejně jako ten z&nbsp;Bookingu.</li>
+        <li><strong>Hlídejte zrušení.</strong> Když host na&nbsp;OTA zruší, termín se má zase uvolnit — jinak zbytečně blokujete volné noci.</li>
+      </ul>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Stačí pro jeden apartmán iCal, nebo potřebuju channel manager?</summary>
+          <p>Pro jeden objekt stačí obousměrný iCal sync. Placený channel manager s&nbsp;API napojením dává smysl u&nbsp;více jednotek nebo tam, kde vadí i&nbsp;pár minut prodlevy.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Synchronizuje iCal i&nbsp;jméno hosta a&nbsp;cenu?</summary>
+          <p>Ne. iCal přenáší jen obsazený termín (příjezd–odjezd) jako neosobní blok „Obsazeno". Údaje hosta a&nbsp;cenu si tahá aplikace jinými cestami; pro prevenci overbookingu stačí právě ten blok.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Co když k&nbsp;overbookingu přesto dojde?</summary>
+          <p>Jednejte rychle: kontaktujte hosty, nabídněte náhradní termín nebo srovnatelné ubytování a&nbsp;řešte to přes podporu platformy. Prevence synchronizací je ale levnější než každé takové hašení.</p>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="solves">
+      <p class="eyebrow">Jak to řeší Ubytovadlo</p>
+      <h2>Obsazenost na jednom místě, synchronizovaná se všemi kanály</h2>
+      <p>Ubytovadlo drží všechny rezervace v&nbsp;jedné databázi a&nbsp;obousměrně synchronizuje kalendáře, takže se termín neprodá dvakrát.</p>
+      <ul>
+        <li><strong>Jeden export feed do&nbsp;OTA</strong> — veškerá obsazenost (web, Booking, Airbnb, eChalupy, Chalupy&nbsp;a&nbsp;chaty i&nbsp;přímé rezervace) jako neosobní „Obsazeno" pro import do&nbsp;extranetů.</li>
+        <li><strong>Import obsazenosti zpět</strong> z&nbsp;Bookingu, Airbnb, eChalupy a&nbsp;Chalupy&nbsp;a&nbsp;chaty, sléváním bez duplicit.</li>
+        <li><strong>Sync každých 15&nbsp;minut</strong> z&nbsp;cronu — úzké okno pro souběh je tím co nejmenší.</li>
+        <li><strong>Automatické uvolnění zrušených</strong> — když blok z&nbsp;OTA feedu zmizí, pobyt se sám stornuje a&nbsp;termín se uvolní (s&nbsp;pojistkou proti výpadku feedu).</li>
+      </ul>
+      <div class="solves-actions">
+        <a class="btn btn-primary" href="/#pouzivat">Chci to používat</a>
+        <a class="btn btn-ghost" href="https://github.com/vzoha/ubytovadlo">Zdrojový kód na GitHubu</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <p class="article-back"><a href="/navody/">← Zpět na návody</a></p>
+  </div>
+</article>
+
+<section class="related">
+  <div class="wrap">
+    <h2>Mohlo by se hodit</h2>
+    <div class="related-grid">
+      <a class="post-card" href="/navody/ubyport-hlaseni-cizincu/">
+        <div class="post-meta"><span class="tag">Cizinci</span></div>
+        <h2>Ubyport: jak nahlásit ubytovaného cizince a nedostat pokutu</h2>
+        <p>Koho, do kdy a jak hlásit cizinecké policii a co je domovní kniha.</p>
+        <span class="post-more">Číst návod →</span>
+      </a>
+      <a class="post-card" href="/navody/faktura-ubytovani-neplatce-dph/">
+        <div class="post-meta"><span class="tag">Fakturace</span></div>
+        <h2>Jak vystavit fakturu za ubytování jako neplátce DPH</h2>
+        <p>Náležitosti dokladu, QR Platba a přepočet eur kurzem ČNB.</p>
+        <span class="post-more">Číst návod →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark">🏡</span> <strong>Ubytovadlo</strong>
+      <p>Chytrá automatizace rezervací pro&nbsp;malé ubytovatele.</p>
+    </div>
+    <nav class="footer-links">
+      <a href="/">Úvod</a>
+      <a href="/navody/">Návody</a>
+      <a href="https://github.com/vzoha/ubytovadlo">Zdrojový kód</a>
+      <a href="mailto:vzoha@volny.cz">Kontakt</a>
+    </nav>
+  </div>
+  <div class="wrap footer-legal">
+    <p>© 2026 Vojtěch Žoha · Open source pod <a href="https://github.com/vzoha/ubytovadlo/blob/main/LICENSE.md">Functional Source License 1.1</a></p>
+    <p style="margin-top:10px">Článek má informativní charakter, nenahrazuje právní ani daňové poradenství. Podmínky rušení se u&nbsp;platforem liší — ověřte si aktuální pravidla Bookingu a&nbsp;Airbnb.</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href*="github.com"]');
+    if (a && typeof gtag === 'function') {
+      gtag('event', 'github_click', { link_url: a.href });
+    }
+  });
+</script>
+</body>
+</html>

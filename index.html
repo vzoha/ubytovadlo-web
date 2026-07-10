@@ -63,6 +63,7 @@
       "codeRepository": "https://github.com/vzoha/ubytovadlo",
       "featureList": [
         "Sběr rezervací z vlastního webu, Bookingu a Airbnb na jedno místo",
+        "Obousměrná synchronizace kalendářů (iCal) s Bookingem, Airbnb a dalšími kanály jako prevence dvojího obsazení",
         "Automatické vystavení faktur v PDF s QR Platbou a navazující číselnou řadou",
         "Přepočet z eur na koruny kurzem ČNB",
         "DPH z provizí Bookingu a Airbnb pro identifikované osoby (§6h ZDPH)",
@@ -142,10 +143,10 @@
       <span class="brand-mark">🏡</span> Ubytovadlo
     </a>
     <nav class="nav-links">
-      <a href="#co-umi">Co umí</a>
-      <a href="#pro-koho">Pro koho</a>
-      <a href="/blog/">Blog</a>
-      <a href="#pouzivat">Chci to používat</a>
+      <a href="/#co-umi">Co umí</a>
+      <a href="/#pro-koho">Pro koho</a>
+      <a href="/navody/">Návody</a>
+      <a href="/#pouzivat">Chci to používat</a>
       <a class="nav-cta" href="https://github.com/vzoha/ubytovadlo">GitHub ↗</a>
     </nav>
   </div>
@@ -166,7 +167,7 @@
       <p class="hero-note">Běží na&nbsp;běžném webhostingu · bez měsíčního předplatného · otevřený kód</p>
     </div>
     <div class="hero-shot">
-      <img src="assets/screenshot-dashboard.png" alt="Přehledový dashboard Ubytovadla — nadcházející pobyty, úklid, faktury k vystavení, DPH a ekonomika na jednom místě" loading="eager" width="1280" height="1062">
+      <img class="zoomable" src="assets/screenshot-dashboard.png" alt="Přehledový dashboard Ubytovadla — nadcházející pobyty, úklid, faktury k vystavení, DPH a ekonomika na jednom místě" loading="eager" width="1280" height="1062">
     </div>
   </div>
 </section>
@@ -194,8 +195,8 @@
         <p>Nová rezervace z&nbsp;webu, e‑mail od&nbsp;Bookingu, blok v&nbsp;Airbnb kalendáři — systém je zachytí sám a&nbsp;založí, co má. Ráno se jen podíváte, co přibylo.</p>
       </article>
       <article class="card">
-        <h3>Všechny kanály na&nbsp;jednom místě</h3>
-        <p>Vlastní web, Booking i&nbsp;Airbnb se slévají do&nbsp;jednoho přehledu. U&nbsp;rezervací z&nbsp;webu nezadáváte nic, u&nbsp;Bookingu a&nbsp;Airbnb doplníte jen to, co chybí.</p>
+        <h3>Všechny kanály a&nbsp;jeden kalendář</h3>
+        <p>Vlastní web, Booking, Airbnb i&nbsp;české portály v&nbsp;jednom přehledu. Obsazenost se obousměrně synchronizuje přes kalendář (iCal), takže se termín neprodá dvakrát.</p>
       </article>
       <article class="card">
         <h3>Faktury na&nbsp;několik kliknutí</h3>
@@ -218,19 +219,19 @@
     <h2 class="section-title">Jak to vypadá</h2>
     <div class="shot-grid">
       <figure class="shot">
-        <img src="assets/screenshot-dph.png" alt="Měsíční přehled DPH reverse charge z provizí Booking/Airbnb — základ, daň a stav podání" loading="lazy" width="1280" height="800">
+        <img class="zoomable" src="assets/screenshot-dph.png" alt="Měsíční přehled DPH reverse charge z provizí Booking/Airbnb — základ, daň a stav podání" loading="lazy" width="1280" height="800">
         <figcaption>DPH z&nbsp;provizí Bookingu a&nbsp;Airbnb — měsíční podklad pro&nbsp;účetní</figcaption>
       </figure>
       <figure class="shot">
-        <img src="assets/screenshot-checkin.png" alt="Online check-in — fakturační údaje a sběr dokladů jen u ubytovaných cizinců pro Ubyport" loading="lazy" width="1100" height="700">
+        <img class="zoomable" src="assets/screenshot-checkin.png" alt="Online check-in — fakturační údaje a sběr dokladů jen u ubytovaných cizinců pro Ubyport" loading="lazy" width="1100" height="700">
         <figcaption>Online check‑in pro&nbsp;cizince (Ubyport)</figcaption>
       </figure>
       <figure class="shot">
-        <img src="assets/screenshot-ekonomika.png" alt="Ekonomika roku — zisk na každou rezervaci po odečtu nákladů a souhrn podle kanálu" loading="lazy" width="1265" height="1471">
+        <img class="zoomable" src="assets/screenshot-ekonomika.png" alt="Ekonomika roku — zisk na každou rezervaci po odečtu nákladů a souhrn podle kanálu" loading="lazy" width="1265" height="1471">
         <figcaption>Ekonomika — zisk na&nbsp;každou rezervaci</figcaption>
       </figure>
       <figure class="shot">
-        <img src="assets/screenshot-faktura.png" alt="Faktura v PDF s QR platbou, variabilním symbolem a odpočtem zálohy" loading="lazy" width="1654" height="1700">
+        <img class="zoomable" src="assets/screenshot-faktura.png" alt="Faktura v PDF s QR platbou, variabilním symbolem a odpočtem zálohy" loading="lazy" width="1654" height="1700">
         <figcaption>Faktura v&nbsp;PDF s&nbsp;QR Platbou</figcaption>
       </figure>
     </div>
@@ -336,7 +337,7 @@
       <p>Chytrá automatizace rezervací pro&nbsp;malé ubytovatele.</p>
     </div>
     <nav class="footer-links">
-      <a href="/blog/">Blog</a>
+      <a href="/navody/">Návody</a>
       <a href="https://github.com/vzoha/ubytovadlo">Zdrojový kód</a>
       <a href="https://github.com/vzoha/ubytovadlo/blob/main/LICENSE.md">Licence FSL</a>
       <a href="mailto:vzoha@volny.cz">Kontakt</a>
@@ -362,6 +363,38 @@
       gtag('event', 'github_click', { link_url: a.href });
     }
   });
+
+  // Lightbox — zvětšení náhledů po kliknutí
+  (function () {
+    var box = document.getElementById('lightbox');
+    if (!box) return;
+    var img = box.querySelector('img');
+
+    function open(src, alt) {
+      img.src = src;
+      img.alt = alt || '';
+      box.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      box.classList.remove('is-open');
+      document.body.style.overflow = '';
+      img.src = '';
+    }
+
+    document.querySelectorAll('img.zoomable').forEach(function (el) {
+      el.addEventListener('click', function () { open(el.currentSrc || el.src, el.alt); });
+    });
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && box.classList.contains('is-open')) close();
+    });
+  })();
 </script>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Zvětšený náhled">
+  <button type="button" class="lightbox-close" aria-label="Zavřít">&times;</button>
+  <img src="" alt="">
+</div>
 </body>
 </html>
