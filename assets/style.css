@@ -341,7 +341,9 @@ img.zoomable { cursor: zoom-in; }
   .shot-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 620px) {
-  .nav-links a:not(.nav-cta) { display: none; }
+  /* on mobile keep Návody + GitHub reachable, hide in-page anchors */
+  .nav-links a:not(.nav-cta):not([href="/navody/"]) { display: none; }
+  .nav-links { gap: 18px; }
   .feature-grid, .cta-grid { grid-template-columns: 1fr; }
   .hero { padding: 48px 0; }
   .story, .features, .gallery, .audience, .cta-section, .waitlist { padding: 56px 0; }

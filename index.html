@@ -378,15 +378,22 @@
     }
   });
 
-  // Lightbox — zvětšení náhledů po kliknutí
+  // Lightbox — zvětšení náhledů s přepínáním
   document.addEventListener('DOMContentLoaded', function () {
     var box = document.getElementById('lightbox');
     if (!box) return;
-    var img = box.querySelector('img');
+    var img = box.querySelector('.lightbox-img');
+    var thumbs = Array.prototype.slice.call(document.querySelectorAll('img.zoomable'));
+    var index = 0;
 
-    function open(src, alt) {
-      img.src = src;
-      img.alt = alt || '';
+    function show(i) {
+      index = (i + thumbs.length) % thumbs.length;
+      var el = thumbs[index];
+      img.src = el.currentSrc || el.src;
+      img.alt = el.alt;
+    }
+    function open(i) {
+      show(i);
       box.classList.add('is-open');
       document.body.style.overflow = 'hidden';
     }
@@ -396,19 +403,31 @@
       img.src = '';
     }
 
-    document.querySelectorAll('img.zoomable').forEach(function (el) {
-      el.addEventListener('click', function () { open(el.currentSrc || el.src, el.alt); });
+    thumbs.forEach(function (el, i) {
+      el.addEventListener('click', function () { open(i); });
     });
     box.addEventListener('click', close);
+    box.querySelectorAll('[data-nav]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        show(index + (btn.dataset.nav === 'next' ? 1 : -1));
+      });
+    });
+    img.addEventListener('click', function (e) { e.stopPropagation(); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && box.classList.contains('is-open')) close();
+      if (!box.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowRight') show(index + 1);
+      else if (e.key === 'ArrowLeft') show(index - 1);
     });
   });
 </script>
 
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Zvětšený náhled">
   <button type="button" class="lightbox-close" aria-label="Zavřít">&times;</button>
-  <img src="" alt="">
+  <button type="button" class="lightbox-nav lightbox-prev" data-nav="prev" aria-label="Předchozí">&#8249;</button>
+  <img class="lightbox-img" src="" alt="">
+  <button type="button" class="lightbox-nav lightbox-next" data-nav="next" aria-label="Další">&#8250;</button>
 </div>
 </body>
 </html>
