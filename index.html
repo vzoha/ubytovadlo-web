@@ -56,7 +56,7 @@
       "applicationSubCategory": "Property management / channel manager",
       "operatingSystem": "PHP 8, MySQL (self-hosted, sdílený hosting)",
       "inLanguage": "cs-CZ",
-      "description": "Ubytovadlo sleduje rezervace z vlastního webu, Bookingu i Airbnb a samo z nich vystaví fakturu, založí řádek v evidenci a pohlídá hlášení i lhůty. Řeší české potřeby: Ubyport, identifikovanou osobu, DPH z provizí Bookingu a Airbnb, QR Platbu i kurzy ČNB.",
+      "description": "Ubytovadlo sleduje rezervace z vlastního webu, Bookingu i Airbnb a samo z nich vystaví fakturu, založí řádek v evidenci a pohlídá hlášení i lhůty. Řeší české potřeby: Ubyport i knihu hostů, identifikovanou osobu i plátce DPH, DPH z provizí Bookingu a Airbnb, QR Platbu i kurzy ČNB.",
       "author": { "@id": "https://www.ubytovadlo.cz/#author" },
       "license": "https://github.com/vzoha/ubytovadlo/blob/main/LICENSE.md",
       "isAccessibleForFree": true,
@@ -66,9 +66,9 @@
         "Obousměrná synchronizace kalendářů (iCal) s Bookingem, Airbnb a dalšími kanály jako prevence dvojího obsazení",
         "Automatické vystavení faktur v PDF s QR Platbou a navazující číselnou řadou",
         "Přepočet z eur na koruny kurzem ČNB",
-        "DPH z provizí Bookingu a Airbnb pro identifikované osoby (§6h ZDPH)",
-        "Online check‑in se sběrem dokladů cizinců pro Ubyport",
-        "Automatické e‑maily hostům (před příjezdem, po pobytu, připomínka doplatku) z editovatelných šablon",
+        "DPH pro identifikované osoby i plátce: reverse charge z provizí Bookingu a Airbnb (§6h ZDPH), výstupní DPH na fakturách a měsíční podklad pro přiznání",
+        "Vícejazyčný online check‑in s knihou hostů; u cizinců podklad pro Ubyport se skenem dokladu kamerou",
+        "E‑maily hostům z editovatelných šablon (před příjezdem, po pobytu, připomínka doplatku, žádost o zálohu) — automaticky, nebo po potvrzení",
         "Evidence příjmů a výdajů, účty a párování bankovních plateb z e‑mailových notifikací",
         "Přehled příjmů, výdajů a zisku na každou rezervaci"
       ],
@@ -195,7 +195,7 @@
       </article>
       <article class="card">
         <h3>Pracuje, i&nbsp;když vy ne</h3>
-        <p>Nová rezervace z&nbsp;webu, e‑mail od&nbsp;Bookingu, blok v&nbsp;Airbnb kalendáři — systém je zachytí sám a&nbsp;založí, co má. Ráno se jen podíváte, co přibylo.</p>
+        <p>Rezervace z&nbsp;vlastního webu, Bookingu i&nbsp;Airbnb aplikace zachytí sama a&nbsp;rovnou z&nbsp;ní založí, co má. Ráno se jen podíváte, co přibylo.</p>
       </article>
       <article class="card">
         <h3>Všechny kanály a&nbsp;jeden kalendář</h3>
@@ -206,16 +206,16 @@
         <p>Úhledné PDF s&nbsp;QR platbou, navazující číselnou řadou a&nbsp;přepočtem z&nbsp;eur kurzem ČNB. Systém sám pozná typ faktury — záloha, FKSP, Airbnb, Booking.</p>
       </article>
       <article class="card">
-        <h3>DPH z&nbsp;provizí pod kontrolou</h3>
-        <p>Pro identifikované osoby (§6h ZDPH): daň z&nbsp;provizí Booking/Airbnb se spočítá sama a&nbsp;měsíčně připraví podklad pro&nbsp;účetní. Žádné opomenutí.</p>
+        <h3>DPH pod kontrolou</h3>
+        <p>Neplátce, identifikovaná osoba (§6h ZDPH) i&nbsp;plátce DPH — aplikace pozná režim a&nbsp;počítá podle něj: reverse charge z&nbsp;provizí Booking/Airbnb, výstupní DPH na&nbsp;fakturách i&nbsp;měsíční podklad pro&nbsp;přiznání. Žádné opomenutí.</p>
       </article>
       <article class="card">
-        <h3>Online check‑in i&nbsp;pro cizince</h3>
-        <p>Čeští hosté projdou bez vyplňování, u&nbsp;cizinců systém sebere doklady pro&nbsp;Ubyport včetně naskenování pasu kamerou. Firemní údaje načte z&nbsp;IČO.</p>
+        <h3>Online check‑in a&nbsp;kniha hostů</h3>
+        <p>Host projde check‑inem ve&nbsp;svém jazyce a&nbsp;doklad si naskenuje kamerou — jeho údaje se samy předvyplní do&nbsp;formuláře a&nbsp;uloží do&nbsp;knihy hostů. U&nbsp;cizinců systém navíc připraví podklad pro&nbsp;Ubyport, firemní údaje načte z&nbsp;IČO.</p>
       </article>
       <article class="card">
         <h3>Zprávy hostům samy odejdou</h3>
-        <p>Přivítání před příjezdem, poděkování po&nbsp;pobytu, připomínka doplatku i&nbsp;žádost o&nbsp;zálohu s&nbsp;QR — e‑maily se rozešlou samy podle plánu z&nbsp;editovatelných šablon.</p>
+        <p>Přivítání před příjezdem, poděkování po&nbsp;pobytu, připomínka doplatku i&nbsp;žádost o&nbsp;zálohu s&nbsp;QR. U&nbsp;každé zprávy zvolíte, jestli odejde sama v&nbsp;naplánovaný čas, nebo ji jen potvrdíte tlačítkem — z&nbsp;editovatelných šablon.</p>
       </article>
       <article class="card">
         <h3>Peníze pod&nbsp;kontrolou</h3>
@@ -238,8 +238,8 @@
         <figcaption>DPH z&nbsp;provizí Bookingu a&nbsp;Airbnb — měsíční podklad pro&nbsp;účetní</figcaption>
       </figure>
       <figure class="shot">
-        <img class="zoomable" src="assets/screenshot-checkin.png" alt="Online check-in — fakturační údaje a sběr dokladů jen u ubytovaných cizinců pro Ubyport" loading="lazy" width="1100" height="700">
-        <figcaption>Online check‑in pro&nbsp;cizince (Ubyport)</figcaption>
+        <img class="zoomable" src="assets/screenshot-checkin.png" alt="Online check-in — vícejazyčný průvodce, kniha hostů a u cizinců podklad pro Ubyport" loading="lazy" width="1100" height="700">
+        <figcaption>Online check‑in a&nbsp;kniha hostů</figcaption>
       </figure>
       <figure class="shot">
         <img class="zoomable" src="assets/screenshot-ekonomika.png" alt="Ekonomika roku — zisk na každou rezervaci po odečtu nákladů a souhrn podle kanálu" loading="lazy" width="1265" height="1471">
